@@ -1,6 +1,7 @@
-import { Response, Request } from 'express';
-import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
+import { Response, Request } from 'express';
+import { validation } from '@server/shared/middlewares';
+import { StatusCodes } from 'http-status-codes';
 
 interface IProduto {
   nome: string;
@@ -9,34 +10,20 @@ interface IProduto {
   createdOn?: Date;
 }
 
-const produtoSchema: yup.ObjectSchema<IProduto> = yup.object().shape({
-  nome: yup.string().required().min(3),
-  fabricante: yup.string().required(),
-  preco: yup.number().required(),
-  createdOn: yup.date().optional().default(() => new Date()),
-});
+interface IFilter {
+  filter?: string;
+}
 
-export const create = async (req: Request<{}, {}, IProduto>, res: Response) => {
-  let validatedData: IProduto | undefined = undefined;
+export const createValidation = validation((getSchema) => ({
+  body: getSchema<IProduto>(yup.object().shape({
+    nome: yup.string().required().min(3),
+    fabricante: yup.string().required(),
+    preco: yup.number().required(),
+    createdOn: yup.date().optional().default(() => new Date()),
+  })),
+  query: getSchema<IFilter>(yup.object().shape({
+    filter: yup.string().optional().min(3),
+  })),
+}));
 
-  try {
-    validatedData = await produtoSchema.validate(req.body, { abortEarly: false });
-  } catch (error) {
-    const yupError = error as yup.ValidationError;
-    const errors: Record<string, string> = {};
-
-    yupError.inner.forEach((err) => {
-      if (err.path === undefined) {
-        return;
-      }
-
-      errors[err.path] = err.message;
-    });
-
-    return res.status(StatusCodes.BAD_REQUEST).json({
-      errors: errors
-    });
-  }
-  console.log(validatedData);
-  return res.status(StatusCodes.OK).json(validatedData);
-};
+export const create = async (req: Request<{}, {}, IProduto>, res: Response) => res.status(StatusCodes.OK).json(req.body);

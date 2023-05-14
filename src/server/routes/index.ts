@@ -3,7 +3,7 @@ import { ProdutosController } from '@server/controllers';
 
 const router = Router();
 
-router.post('/create', ProdutosController.create);
+router.post('/create', ProdutosController.createValidation, ProdutosController.create);
 
 export {
   router,

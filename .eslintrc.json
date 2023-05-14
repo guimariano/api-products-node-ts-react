@@ -130,10 +130,9 @@
         "no-path-concat": "error",
         "no-process-exit": "error",
         "no-restricted-modules": "off",
-        "no-sync": "warn",
 
         // ECMAScript 6 support
-        "arrow-body-style": [ "error", "as-needed" ],
+        "arrow-body-style": [ "warn", "as-needed" ],
         "arrow-parens": [ "error", "always" ],
         "arrow-spacing": [ "error", { "before": true, "after": true }],
         "constructor-super": "error",
