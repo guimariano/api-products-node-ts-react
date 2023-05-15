@@ -10,10 +10,6 @@ interface IProduto {
   createdOn?: Date;
 }
 
-interface IFilter {
-  filter?: string;
-}
-
 export const createValidation = validation((getSchema) => ({
   body: getSchema<IProduto>(yup.object().shape({
     nome: yup.string().required().min(3),
@@ -21,9 +17,9 @@ export const createValidation = validation((getSchema) => ({
     preco: yup.number().required(),
     createdOn: yup.date().optional().default(() => new Date()),
   })),
-  query: getSchema<IFilter>(yup.object().shape({
-    filter: yup.string().optional().min(3),
-  })),
 }));
 
-export const create = async (req: Request<{}, {}, IProduto>, res: Response) => res.status(StatusCodes.OK).json(req.body);
+export const create = async (req: Request<{}, {}, IProduto>, res: Response) => {
+  console.log(req.body);
+  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json('Não implementado!');
+};
