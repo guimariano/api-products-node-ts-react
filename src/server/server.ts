@@ -5,11 +5,9 @@ import { router } from '@server/routes';
 
 dotenv.config();
 
-const app: Express = express();
+const server: Express = express();
 
-app.use(express.json());
-app.use(router);
+server.use(express.json());
+server.use(router);
 
-export {
-  app,
-};
+export { server };

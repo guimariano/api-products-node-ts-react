@@ -31,5 +31,11 @@
         "@validations/*": [ "./src/validations/*" ],
         "@controllers/*": [ "./src/controllers/*" ]
     }
-  }
+  },
+  "exclude": [
+    "./jest.config.ts",
+    "./node_modules",
+    "./tests",
+    "./build",
+  ],
 }
