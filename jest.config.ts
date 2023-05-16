@@ -2,9 +2,13 @@
 /*
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
- */
+*/
+import { pathsToModuleNameMapper } from 'ts-jest';
+import { compilerOptions } from './tsconfig.json';
+import type { JestConfigWithTsJest } from 'ts-jest';
 
-export default {
+
+const jestConfig: JestConfigWithTsJest = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -16,6 +20,14 @@ export default {
 
   // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
+
+  notify: true,
+
+  roots: [ '<rootDir>' ],
+
+  modulePaths: [ compilerOptions.baseUrl ],
+
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>' }),
 
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
@@ -98,7 +110,7 @@ export default {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
+  // preset: 'ts-jest',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -134,7 +146,7 @@ export default {
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: [
-    './tests/jest.setup.ts'
+    '<rootDir>/tests/jest.setup.ts'
   ],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
@@ -194,3 +206,5 @@ export default {
   // Whether to use watchman for file crawling
   // watchman: true,
 };
+
+export default jestConfig;

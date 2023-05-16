@@ -5,7 +5,7 @@
     "lib": ["es6"],
     "allowJs": true,
     "outDir": "./build",
-    "rootDir": "./src",
+    "rootDir": ".",
     "removeComments": true,
     "typeRoots": ["./node_modules/@types", "./src/@types"],
     "esModuleInterop": true,
@@ -18,24 +18,23 @@
     "noImplicitAny": true,
     "baseUrl": ".",
     "paths": {
-      "@utils/*": [ "./src/utils/*" ],
-        "@models/*": [ "./src/models/*" ],
-        "@routes/*": [ "./src/routes/*" ],
-        "@server/*": [ "./src/server/*" ],
-        "@configs/*": [ "./src/configs/*" ],
-        "@helpers/*": [ "./src/helpers/*" ],
-        "@services/*": [ "./src/services/*" ],
-        "@components/*": [ "./src/components/*" ],
-        "@interfaces/*": [ "./src/interfaces/*" ],
-        "@middlewares/*": [ "./src/middlewares/*" ],
-        "@validations/*": [ "./src/validations/*" ],
-        "@controllers/*": [ "./src/controllers/*" ]
+      "@utils/*": [ "src/utils/*" ],
+      "@models/*": [ "src/models/*" ],
+      "@routes/*": [ "src/routes/*" ],
+      "@server/*": [ "src/server/*" ],
+      "@configs/*": [ "src/configs/*" ],
+      "@helpers/*": [ "src/helpers/*" ],
+      "@services/*": [ "src/services/*" ],
+      "@components/*": [ "src/components/*" ],
+      "@interfaces/*": [ "src/interfaces/*" ],
+      "@middlewares/*": [ "src/middlewares/*" ],
+      "@validations/*": [ "src/validations/*" ],
+      "@controllers/*": [ "src/controllers/*" ]
     }
   },
   "exclude": [
-    "./jest.config.ts",
     "./node_modules",
-    "./tests",
     "./build",
-  ],
+    "./tests"
+  ]
 }
