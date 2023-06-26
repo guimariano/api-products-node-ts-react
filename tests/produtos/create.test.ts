@@ -13,7 +13,20 @@ describe('criação de produtos', () => {
         createdOn: new Date(),
       });
 
-    expect(resposta.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);
+    expect(resposta.statusCode).toEqual(StatusCodes.CREATED);
+    expect(typeof resposta.body).toEqual('number');
+  });
+  it('should drop error on create a new produto with short name', async () => {
+    const resposta = await testServer
+      .post('/produtos')
+      .send({
+        nome: 'Pr',
+        fabricante: 'Fabricante 1',
+        preco: 5000.00,
+        createdOn: new Date(),
+      });
+
+    expect(resposta.body).toHaveProperty('errors.body.nome');
   });
 });
 

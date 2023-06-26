@@ -1,5 +1,5 @@
 {
-  "name": "api-rest-node",
+  "name": "api-products-rest-node",
   "version": "1.0.0",
   "description": "An Api of products that uses Express and Node",
   "main": "src/index.ts",
