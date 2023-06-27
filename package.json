@@ -5,8 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "jest",
-    "build": "npx tsc",
-    "production": "node ./build/index.js",
+    "build": "tsc",
+    "production": "node -r ts-node/register/transpile-only -r tsconfig-paths/register ./build/src/index.js",
     "postinstall": "tsc",
     "dev": "ts-node-dev -r tsconfig-paths/register ./src/index.ts",
     "lint": "eslint ./src --ext .ts",
@@ -42,6 +42,6 @@
     "yup": "^1.1.1"
   },
   "engines": {
-    "node": "16.17.x"
+    "node": "16.x.x"
   }
 }
