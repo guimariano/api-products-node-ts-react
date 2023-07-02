@@ -110,13 +110,11 @@
         "no-delete-var": "error",
         "no-label-var": "error",
         "no-shadow-restricted-names": "error",
-        "no-shadow": "warn",
         // We require all vars to be initialized (see init-declarations)
         // If we NEED a var to be initialized to undefined, it needs to be explicit
         "no-undef-init": "off",
         "no-undef": "error",
         "no-undefined": "off",
-        "no-unused-vars": "warn",
         // Disallow hoisting - let & const don't allow hoisting anyhow
         "no-use-before-define": "error",
 
@@ -195,13 +193,6 @@
         "padded-blocks": [ "warn", "never" ],
         "quote-props": [ "warn", "consistent-as-needed" ],
         "quotes": [ "warn", "single" ],
-        "require-jsdoc": [ "warn", {
-            "require": {
-                "FunctionDeclaration": true,
-                "MethodDefinition": true,
-                "ClassDeclaration": false
-            }
-        }],
         "semi-spacing": [ "warn", { "before": false, "after": true }],
         "semi": [ "error", "always" ],
         "sort-vars": "off",

@@ -131,4 +131,4 @@ build
 .pnp.*
 
 #sqlite
-.sqlite
+*.sqlite
