@@ -12,7 +12,7 @@ export const getAll = async (
     const result = await knex(ETableNames.rating)
       .select('*')
       .where('ratingId', '=', Number(ratingId))
-      .orWhere('nome', 'like', `%${filter}%`)
+      .orWhere('rating', 'like', `%${filter}%`)
       .offset((page - 1) * limit)
       .limit(limit);
 

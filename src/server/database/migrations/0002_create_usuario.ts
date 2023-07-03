@@ -6,7 +6,7 @@ export async function up(knex: Knex) {
   return knex
     .schema
     .createTable(ETableNames.usuario, (table) => {
-      table.bigIncrements('usuarioId').primary().index();
+      table.bigIncrements('usuarioId').unsigned().primary().index();
       table.string('nome', 255).checkLength('<=', 255).index().notNullable();
       table.string('email', 255).unique().checkLength('<=', 255).index().notNullable();
       table.timestamps(true, true, true);

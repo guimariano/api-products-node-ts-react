@@ -6,7 +6,7 @@ export async function up(knex: Knex) {
   return knex
     .schema
     .createTable(ETableNames.produto, (table) => {
-      table.bigIncrements('produtoId').primary().index();
+      table.bigIncrements('produtoId').unsigned().primary().index();
       table.string('nome', 255).checkLength('<=', 255).index().notNullable();
       table.string('categoria', 255).checkLength('<=', 255).index().notNullable();
       table.decimal('preco', 10, 2).index().notNullable();

@@ -6,7 +6,7 @@ export async function up(knex: Knex): Promise<void> {
   return knex
     .schema
     .createTable(ETableNames.rating, (table) => {
-      table.bigIncrements('rateId').primary().index();
+      table.bigIncrements('ratingId').unsigned().primary().index();
       table.tinyint('rating').index().notNullable().defaultTo(0);
 
       table.bigInteger('produtoId')
