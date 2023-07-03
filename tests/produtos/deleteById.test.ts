@@ -16,7 +16,7 @@ describe('delete de produtos', () => {
       .post('/produtos')
       .send({
         nome: 'Produto 1',
-        fabricante: 'Fabricante 1',
+        categoria: 'categoria 1',
         preco: 5000.00,
       });
 

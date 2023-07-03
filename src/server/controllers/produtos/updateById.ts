@@ -10,7 +10,7 @@ interface IParamsProps {
 
 interface IProduto {
   nome: string;
-  fabricante: string;
+  categoria: string;
   preco: number;
 }
 
@@ -20,7 +20,7 @@ export const updateByIdValidation = validation((getSchema) => ({
   })),
   body: getSchema<IProduto>(yup.object().shape({
     nome: yup.string().required().min(3).max(255),
-    fabricante: yup.string().required().min(3).max(255),
+    categoria: yup.string().required().min(3).max(255),
     preco: yup.number().required(),
   })),
 }));

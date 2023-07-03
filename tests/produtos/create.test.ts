@@ -8,7 +8,7 @@ describe('criação de produtos', () => {
       .post('/produtos')
       .send({
         nome: 'Produto 1',
-        fabricante: 'Fabricante 1',
+        categoria: 'categoria 1',
         preco: 5000.00,
       });
 
@@ -20,7 +20,7 @@ describe('criação de produtos', () => {
       .post('/produtos')
       .send({
         nome: 'Pr',
-        fabricante: 'Fabricante 1',
+        categoria: 'categoria 1',
         preco: 5000.00,
       });
 

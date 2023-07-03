@@ -1,6 +1,6 @@
 export interface IProduto {
   produtoId: number;
   nome: string;
-  fabricante: string;
+  categoria: string;
   preco: number;
 }

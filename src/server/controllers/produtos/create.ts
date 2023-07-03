@@ -10,7 +10,7 @@ type IBodyProps = Omit<IProduto, 'produtoId'>;
 export const createValidation = validation((getSchema) => ({
   body: getSchema<IBodyProps>(yup.object().shape({
     nome: yup.string().required().min(3).max(255),
-    fabricante: yup.string().required().min(3).max(255),
+    categoria: yup.string().required().min(3).max(255),
     preco: yup.number().required().min(0),
   })),
 }));

@@ -16,7 +16,7 @@ describe('update by id', () => {
       .post('/produtos')
       .send({
         nome: 'Produto 1',
-        fabricante: 'Fabricante 1',
+        categoria: 'categoria 1',
         preco: 5000.00,
       });
 
@@ -29,7 +29,7 @@ describe('update by id', () => {
       .put(`/produtos/${respostaCreated.body}`)
       .send({
         nome: 'Produto 2',
-        fabricante: 'Fabricante 2',
+        categoria: 'categoria 2',
         preco: 5001.00,
       });
 

@@ -9,6 +9,7 @@ import { Knex as knex } from '../src/server/database/knex';
 // eslint-disable-next-line no-undef
 beforeAll(async () => {
   await knex.migrate.latest();
+  await knex.seed.run();
 });
 
 // eslint-disable-next-line no-undef
