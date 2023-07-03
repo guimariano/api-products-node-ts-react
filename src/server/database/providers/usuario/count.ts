@@ -3,8 +3,8 @@ import { Knex as knex } from '@server/database/knex';
 
 export const count = async (filter = ''): Promise<number | Error> => {
   try {
-    const [ { count } ] = await knex(ETableNames.rating)
-      .where('ratingId', 'like', `%${filter}%`)
+    const [ { count } ] = await knex(ETableNames.usuario)
+      .where('usuarioId', 'like', `%${filter}%`)
       .count<[ { count: number }]>('* as count');
 
     if (Number.isInteger(Number(count))) {

@@ -1,8 +1,10 @@
-import { IProduto, IRating } from '@server/database/models';
+import { IProduto, IRating, IUsuario } from '@server/database/models';
 
 declare module 'knex/types/tables' {
   interface Tables {
     produto: IProduto,
-    produto: IRating,
+    usuario: IUsuario,
+    rating: IRating,
+
   }
 }

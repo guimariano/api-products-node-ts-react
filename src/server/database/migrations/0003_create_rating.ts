@@ -12,17 +12,24 @@ export async function up(knex: Knex): Promise<void> {
       table.bigInteger('produtoId')
         .unsigned()
         .index()
+        .notNullable()
         .references('produtoId')
         .inTable(ETableNames.produto)
-        .defaultTo(1);
+        .onUpdate('CASCADE')
+        .onDelete('RESTRICT');
 
-      // table.bigInteger('usuarioId')
-      //   .unsigned()
-      //   .index()
-      //   .references('usuarioId')
-      //   .inTable(ETableNames.usuario);
+      table.bigInteger('usuarioId')
+        .unsigned()
+        .index()
+        .notNullable()
+        .references('usuarioId')
+        .inTable(ETableNames.usuario)
+        .onUpdate('CASCADE')
+        .onDelete('RESTRICT');
 
-      table.comment('Table used to store rating products');
+      table.timestamps(true, true, true);
+
+      table.comment('Table used to store user rating products');
     })
     .then(() => console.log(`# Created table ${ETableNames.rating}`));
 }

@@ -1,15 +1,15 @@
 import { ETableNames } from '@server/database/ETableNames';
 import { Knex as knex } from '@server/database/knex';
-import { IRating } from '@server/database/models';
+import { IUsuario } from '@server/database/models';
 
 export const updateById = async (
-  ratingId: number,
-  rating: Omit<IRating, 'ratingId'>
+  usuarioId: number,
+  usuario: Omit<IUsuario, 'usuarioId'>
 ): Promise<void | Error> => {
   try {
-    const result = await knex(ETableNames.rating)
-      .update(rating)
-      .where('ratingId', '=', Number(ratingId));
+    const result = await knex(ETableNames.usuario)
+      .update(usuario)
+      .where('usuarioId', '=', Number(usuarioId));
 
     if (result > 0) {
       return undefined;
