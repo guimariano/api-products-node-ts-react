@@ -21,6 +21,10 @@ export const development: Knex.Config = {
   }
 };
 
+/** Oa ambiente de test do Jest é criado e destruido em memória.
+ * Para isso, devemos subir as migrations guide nesse ambiente
+ * e, após os testes, destuir o Knex
+*/
 export const test: Knex.Config = {
   ...development,
   connection: ':memory:',

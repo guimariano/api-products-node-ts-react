@@ -3,5 +3,4 @@ export interface IProduto {
   nome: string;
   fabricante: string;
   preco: number;
-  createdOn?: Date;
 }

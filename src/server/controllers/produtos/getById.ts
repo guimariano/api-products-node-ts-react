@@ -2,6 +2,7 @@ import * as yup from 'yup';
 import { Response, Request } from 'express';
 import { validation } from '@server/shared/middlewares';
 import { StatusCodes } from 'http-status-codes';
+import { ProdutosProvider } from '@server/database/providers/produtos';
 
 interface IParamsProps {
   produtoId?: number;
@@ -14,18 +15,22 @@ export const getByIdValidation = validation((getSchema) => ({
 }));
 
 export const getById = async (req: Request<IParamsProps>, res: Response) => {
-  if (Number(req.params.produtoId) === 99999) {
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+  if (!req.params.produtoId) {
+    return res.status(StatusCodes.BAD_REQUEST).json({
       errors: {
-        default: 'Registro não encontrado'
+        default: 'parametro "produtoId" precisa ser definido.'
       }
     });
   }
-  return res.status(StatusCodes.OK).json({
-    produtoId: req.params.produtoId,
-    nome: 'Produto 1',
-    fabricante: 'Fabricante 1',
-    preco: 5000.00,
-    createdOn: new Date(),
-  });
+
+  const result = await ProdutosProvider.getById(req.params.produtoId);
+
+  if (result instanceof Error) {
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
+      errors: {
+        default: result.message
+      }
+    });
+  }
+  return res.status(StatusCodes.OK).json(result);
 };

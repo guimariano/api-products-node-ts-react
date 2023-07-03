@@ -7,8 +7,8 @@ export async function up(knex: Knex) {
     .schema
     .createTable(ETableNames.produto, (table) => {
       table.bigIncrements('produtoId').primary().index();
-      table.string('nome', 255).index().notNullable();
-      table.string('fabricante', 255).index().notNullable();
+      table.string('nome', 255).checkLength('<=', 255).index().notNullable();
+      table.string('fabricante', 255).checkLength('<=', 255).index().notNullable();
       table.decimal('preco', 10, 2).index().notNullable();
       table.timestamps(true, true, true);
 

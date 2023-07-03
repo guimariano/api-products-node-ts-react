@@ -10,7 +10,6 @@ describe('getAll de produtos', () => {
         nome: 'Produto 1',
         fabricante: 'Fabricante 1',
         preco: 5000.00,
-        createdOn: new Date(),
       });
 
     expect(respostaCreated.statusCode).toEqual(StatusCodes.CREATED);

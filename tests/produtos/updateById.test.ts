@@ -18,15 +18,20 @@ describe('update by id', () => {
         nome: 'Produto 1',
         fabricante: 'Fabricante 1',
         preco: 5000.00,
-        createdOn: new Date(),
       });
 
     expect(respostaCreated.statusCode).toEqual(StatusCodes.CREATED);
     expect(typeof respostaCreated.body).toEqual('number');
 
+    console.log(respostaCreated.body);
+
     const respostaUpdated = await testServer
       .put(`/produtos/${respostaCreated.body}`)
-      .send();
+      .send({
+        nome: 'Produto 2',
+        fabricante: 'Fabricante 2',
+        preco: 5001.00,
+      });
 
     expect(respostaUpdated.statusCode).toEqual(StatusCodes.NO_CONTENT);
   });

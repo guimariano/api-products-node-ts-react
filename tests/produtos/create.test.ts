@@ -10,7 +10,6 @@ describe('criação de produtos', () => {
         nome: 'Produto 1',
         fabricante: 'Fabricante 1',
         preco: 5000.00,
-        createdOn: new Date(),
       });
 
     expect(resposta.statusCode).toEqual(StatusCodes.CREATED);
@@ -23,7 +22,6 @@ describe('criação de produtos', () => {
         nome: 'Pr',
         fabricante: 'Fabricante 1',
         preco: 5000.00,
-        createdOn: new Date(),
       });
 
     expect(resposta.body).toHaveProperty('errors.body.nome');
