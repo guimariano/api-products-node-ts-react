@@ -1,0 +1,486 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "contact": {},
+    "title": "api-rest-node",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/produtos": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "produtoId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Produtos"
+        ],
+        "description": "Get All",
+        "operationId": "getAll",
+        "summary": "Get All"
+      },
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "categoria": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "nome": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "preco": {
+                    "example": "",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Produtos"
+        ],
+        "description": "Create",
+        "operationId": "create",
+        "summary": "Create"
+      }
+    },
+    "/produtos/{produtoId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "produtoId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "delete": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Produtos"
+        ],
+        "description": "Delete",
+        "operationId": "delete",
+        "summary": "Delete"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Produtos"
+        ],
+        "description": "Get By Id",
+        "operationId": "getById",
+        "summary": "Get By Id"
+      },
+      "put": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "categoria": {
+                    "example": "Categoria 3",
+                    "type": "string"
+                  },
+                  "nome": {
+                    "example": "Nome muito bacana a vista",
+                    "type": "string"
+                  },
+                  "preco": {
+                    "example": 300.33,
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Produtos"
+        ],
+        "description": "Update",
+        "operationId": "update",
+        "summary": "Update"
+      }
+    },
+    "/rating": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "ratingId",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Rating"
+        ],
+        "description": "Get All",
+        "operationId": "getAll1",
+        "summary": "Get All"
+      },
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "produtoId": {
+                    "example": 460,
+                    "type": "number"
+                  },
+                  "rating": {
+                    "example": 4,
+                    "type": "number"
+                  },
+                  "usuarioId": {
+                    "example": 6,
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Rating"
+        ],
+        "description": "Create",
+        "operationId": "create1",
+        "summary": "Create"
+      }
+    },
+    "/rating/{ratingId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "ratingId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "delete": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Rating"
+        ],
+        "description": "Delete",
+        "operationId": "delete1",
+        "summary": "Delete"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Rating"
+        ],
+        "description": "Get By Id",
+        "operationId": "getById1",
+        "summary": "Get By Id"
+      },
+      "put": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "produtoId": {
+                    "example": 460,
+                    "type": "number"
+                  },
+                  "rating": {
+                    "example": 1,
+                    "type": "number"
+                  },
+                  "usuarioId": {
+                    "example": 6,
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Rating"
+        ],
+        "description": "Update",
+        "operationId": "update1",
+        "summary": "Update"
+      }
+    },
+    "/usuarios": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "usuarioId",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Usuarios"
+        ],
+        "description": "Get All",
+        "operationId": "getAll2",
+        "summary": "Get All"
+      },
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "example": "",
+                    "type": "string"
+                  },
+                  "nome": {
+                    "example": " ",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Usuarios"
+        ],
+        "description": "Create",
+        "operationId": "create2",
+        "summary": "Create"
+      }
+    },
+    "/usuarios/{usuarioId}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "usuarioId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "delete": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Usuarios"
+        ],
+        "description": "Delete",
+        "operationId": "delete2",
+        "summary": "Delete"
+      },
+      "get": {
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Usuarios"
+        ],
+        "description": "Get By Id",
+        "operationId": "getById2",
+        "summary": "Get By Id"
+      },
+      "put": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "example": "atualizado_@gmail.com",
+                    "type": "string"
+                  },
+                  "nome": {
+                    "example": "Nome Atualizado",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Usuarios"
+        ],
+        "description": "Update",
+        "operationId": "update2",
+        "summary": "Update"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Produtos"
+    },
+    {
+      "name": "Rating"
+    },
+    {
+      "name": "Usuarios"
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api-products-node-rest-yqlvm.ondigitalocean.app/"
+    },
+    {
+      "url": "http://localhost:8000/"
+    }
+  ]
+}

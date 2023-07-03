@@ -4,8 +4,14 @@ import {
   RatingController,
   UsuarioController
 } from '@server/controllers';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from '../../../swagger.json';
+
 
 const router = Router();
+
+router.use('/api-docs', swaggerUi.serve);
+router.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 router.get('/', (a_, res) => res.send('Home sweet home.'));
 
