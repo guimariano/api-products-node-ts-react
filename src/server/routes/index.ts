@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import { ProdutoRateController, ProdutosController } from '@server/controllers';
+import { ProdutosController } from '@server/controllers';
+import { RatingController } from '@server/controllers/rating';
 
 const router = Router();
 
@@ -10,11 +11,11 @@ router.get('/produtos/:produtoId', ProdutosController.getByIdValidation, Produto
 router.put('/produtos/:produtoId', ProdutosController.updateByIdValidation, ProdutosController.updateById);
 router.delete('/produtos/:produtoId', ProdutosController.deleteByIdValidation, ProdutosController.deleteById);
 
-router.post('/produto-rate', ProdutoRateController.createValidation, ProdutoRateController.create);
-router.get('/produto-rate', ProdutoRateController.getAllValidation, ProdutoRateController.getAll);
-router.get('/produto-rate/:produtoId', ProdutoRateController.getByIdValidation, ProdutoRateController.getById);
-router.put('/produto-rate/:produtoId', ProdutoRateController.updateByIdValidation, ProdutoRateController.updateById);
-router.delete('/produto-rate/:produtoId', ProdutoRateController.deleteByIdValidation, ProdutoRateController.deleteById);
+router.post('/rating', RatingController.createValidation, RatingController.create);
+router.get('/rating', RatingController.getAllValidation, RatingController.getAll);
+router.get('/rating/:ratingId', RatingController.getByIdValidation, RatingController.getById);
+router.put('/rating/:ratingId', RatingController.updateByIdValidation, RatingController.updateById);
+router.delete('/rating/:ratingId', RatingController.deleteByIdValidation, RatingController.deleteById);
 
 export {
   router,

@@ -2,8 +2,8 @@ import * as yup from 'yup';
 import { Response, Request } from 'express';
 import { validation } from '@server/shared/middlewares';
 import { StatusCodes } from 'http-status-codes';
-import { IProduto } from '@server/database/models';
-import { ProdutosProvider } from '@server/database/providers/produtos';
+import { IProduto } from '@server/database/models/produto';
+import { ProdutosProvider } from '@server/database/providers/produto';
 
 type IBodyProps = Omit<IProduto, 'produtoId'>;
 

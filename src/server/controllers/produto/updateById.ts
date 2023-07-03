@@ -2,7 +2,7 @@ import * as yup from 'yup';
 import { Response, Request } from 'express';
 import { validation } from '@server/shared/middlewares';
 import { StatusCodes } from 'http-status-codes';
-import { ProdutosProvider } from '@server/database/providers/produtos';
+import { ProdutosProvider } from '@server/database/providers/produto';
 
 interface IParamsProps {
   produtoId?: number;

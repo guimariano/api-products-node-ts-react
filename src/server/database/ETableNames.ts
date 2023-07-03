@@ -1,4 +1,4 @@
 export enum ETableNames {
   produto = 'produto',
-  produtoRate = 'produtoRate',
+  rating = 'rating',
 }
