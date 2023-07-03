@@ -1,9 +1,25 @@
 import { ETableNames } from '@server/database/ETableNames';
 import { Knex as knex } from '@server/database/knex';
 import { IRating } from '@server/database/models';
+import { getById as getProdutoById } from '../produto/getById';
+import { getById as getUsuarioById } from '../usuario/getById';
 
 export const create = async (rating: Omit<IRating, 'ratingId'>): Promise<number | Error> => {
   try {
+    const { produtoId, usuarioId } = rating;
+
+    const produto = await getProdutoById(produtoId);
+
+    if (produto instanceof Error) {
+      return new Error(produto.message);
+    }
+
+    const usuario = await getUsuarioById(usuarioId);
+
+    if (usuario instanceof Error) {
+      return new Error(usuario.message);
+    }
+
     const [ { count } ] = await knex(ETableNames.rating)
       .select('ratingId')
       .where('usuarioId', '=', rating.usuarioId)

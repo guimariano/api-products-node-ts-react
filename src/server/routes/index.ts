@@ -1,7 +1,9 @@
 import { Router } from 'express';
-import { ProdutosController } from '@server/controllers';
-import { RatingController } from '@server/controllers/rating';
-import { UsuarioController } from '@server/controllers/usuario';
+import {
+  ProdutosController,
+  RatingController,
+  UsuarioController
+} from '@server/controllers';
 
 const router = Router();
 

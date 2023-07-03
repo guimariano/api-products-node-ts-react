@@ -10,7 +10,7 @@ type IBodyProps = Omit<IUsuario, 'usuarioId'>;
 export const createValidation = validation((getSchema) => ({
   body: getSchema<IBodyProps>(yup.object().shape({
     nome: yup.string().required().min(3).max(255),
-    email: yup.string().required().min(3).max(255),
+    email: yup.string().required().min(3).max(255).email(),
   })),
 }));
 

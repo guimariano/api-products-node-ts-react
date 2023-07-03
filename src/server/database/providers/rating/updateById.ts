@@ -14,13 +14,13 @@ export const updateById = async (
     const produto = await getProdutoById(produtoId);
 
     if (produto instanceof Error) {
-      return new Error('produto não encontrado');
+      return new Error(produto.message);
     }
 
     const usuario = await getUsuarioById(usuarioId);
 
     if (usuario instanceof Error) {
-      return new Error('usuário não encontrado');
+      return new Error(usuario.message);
     }
 
     const result = await knex(ETableNames.rating)

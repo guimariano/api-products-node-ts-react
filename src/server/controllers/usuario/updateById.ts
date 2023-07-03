@@ -19,7 +19,7 @@ export const updateByIdValidation = validation((getSchema) => ({
   })),
   body: getSchema<IUsuario>(yup.object().shape({
     nome: yup.string().required().min(3).max(255),
-    email: yup.string().required().min(3).max(255),
+    email: yup.string().required().min(3).max(255).email(),
   })),
 }));
 

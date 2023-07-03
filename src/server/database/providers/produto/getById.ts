@@ -13,7 +13,7 @@ export const getById = async (produtoId: number): Promise<IProduto | Error> => {
       return resultById;
     }
 
-    return Error('Registro não encontrado');
+    return Error(`Registro não encontrado na tabela de ${ETableNames.produto}`);
   } catch (error) {
     console.log(error);
     return Error('erro ao buscar o registro');

@@ -13,7 +13,7 @@ export const getById = async (usuarioId: number): Promise<IUsuario | Error> => {
       return resultById;
     }
 
-    return Error('Registro não encontrado');
+    return Error(`Registro não encontrado na tabela de ${ETableNames.usuario}`);
   } catch (error) {
     console.log(error);
     return Error('erro ao buscar o registro');
